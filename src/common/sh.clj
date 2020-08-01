@@ -1,7 +1,11 @@
 (ns common.sh)
 
+
+(defn expand-home [s]
+   (clojure.string/replace s #"~" (System/getProperty "user.home")))
+
 (defn sh! [& args]
-  (.waitFor (-> (ProcessBuilder. (into [] args)) .inheritIO .start)))
+  (.waitFor (-> (ProcessBuilder. (into [] (map expand-home) args)) .inheritIO .start)))
 
 (defn exit! [msg]
   (prn msg)
