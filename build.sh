@@ -5,7 +5,8 @@ shift
 
 dir=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 
-export CP="$dir/src"
+
+export CP="$(clojure -Spath):$dir/src"
 
 init() {
 
@@ -22,6 +23,10 @@ case "$CMD" in
   ;;
   docker )
    bb -cp $CP -m docker.core $@
+   ;;
+  install )
+   bb -cp "$CP" -m install.mactools $@
+   bb -cp $CP -m install.clojure $@
    ;;
   init )
    init

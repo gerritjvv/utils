@@ -1,7 +1,10 @@
 # utils
 personal automated tasks 
 
+# Docs
 
+https://practicalli.github.io/clojure/clojure-tools/install/
+https://github.com/borkdude/babashka
 
 ## Getting started
 
