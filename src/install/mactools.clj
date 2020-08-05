@@ -34,6 +34,7 @@ Plug 'radenling/vim-dispatch-neovim'
 
 call plug#end()
 
+let maplocalleader = "\\"
 
 let g:float_preview#docked = 0
 let g:float_preview#max_width = 80

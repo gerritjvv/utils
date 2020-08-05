@@ -13,3 +13,10 @@
 
 (defn -main [& args]
   (apply sh! args))
+
+
+(+ 1 2) 
+(comment
+  
+  (sh! "ls" "/tmp")
+  )
