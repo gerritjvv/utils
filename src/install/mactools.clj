@@ -28,6 +28,9 @@ Plug 'liuchengxu/vim-clap'
 
 Plug 'Olical/conjure', { 'tag': 'v3.4.0' }
 
+Plug 'tpope/vim-dispatch'
+Plug 'clojure-vim/vim-jack-in'
+Plug 'radenling/vim-dispatch-neovim'
 
 call plug#end()
 
