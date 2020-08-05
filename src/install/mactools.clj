@@ -62,6 +62,9 @@ nnoremap <leader>fm :Clap marks<cr>
  (sh! "brew" "install" lib))
 
 
+(defn gpg []
+  (sh! "echo" "'export GPG_TTY=$(tty)'" ">>" "~/.zshrc"))
+
 (defn vim []
   (brew-install "neovim")
   (plugin-manager)
@@ -70,9 +73,11 @@ nnoremap <leader>fm :Clap marks<cr>
 (defn -main [& args]
   (let [tools ["rlwrap"
                "curl"
+               "gpg"
                "ripgrep"]]
      (doseq [tool tools]
       (brew-install tool))
   
-    (vim)))
+    (vim)
+    (gpg)))
 
