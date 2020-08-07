@@ -30,9 +30,11 @@ Plug 'tpope/vim-dispatch'
 Plug 'clojure-vim/vim-jack-in'
 Plug 'radenling/vim-dispatch-neovim'
 
+Plug 'chrisbra/csv.vim'
+
 call plug#end()
 
-let maplocalleader = "\\"
+let maplocalleader = \"\\\"
 
 let g:float_preview#docked = 0
 let g:float_preview#max_width = 80
