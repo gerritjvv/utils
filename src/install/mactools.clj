@@ -71,6 +71,8 @@ nnoremap <leader>fm :Clap marks<cr>
 
 (defn vim []
   (brew-install "neovim")
+  (sh! "curl" "-fLo" "~/.vim/autoload/plug.vim" "--create-dirs" "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
+ 
   (plugin-manager)
   (prn ">>>>>>>> Use nvim and run :PlugInstall"))
 
