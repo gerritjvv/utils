@@ -41,8 +41,8 @@ let g:float_preview#max_width = 80
 let g:float_preview#max_height = 40
 
 let g:ale_linters = {
-      \\ 'clojure': ['clj-kondo', 'joker']
-      \\}
+      'clojure': ['clj-kondo', 'joker']
+      }
 
 let g:clap_provider_grep_delay = 50
 let g:clap_provider_grep_opts = '-H --no-heading --vimgrep --smart-case --hidden -g \"!.git/\"'
