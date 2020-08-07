@@ -3,8 +3,6 @@
 
 
 (defn plugin-manager []
-  ;(sh! "curl" "-fLo ~/.vim/autoload/plug.vim" "--create-dirs"
-   ; "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
 
   (sh! "mkdir" "-p" "~/.config/nvim")
 
@@ -72,6 +70,8 @@ nnoremap <leader>fm :Clap marks<cr>
 (defn vim []
   (brew-install "neovim")
   (sh! "curl" "-fLo" "~/.vim/autoload/plug.vim" "--create-dirs" "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
+  (sh! "sh" "-c" 'curl' '-fLo' '"${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim' "--create-dirs"
+       "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
  
   (plugin-manager)
   (prn ">>>>>>>> Use nvim and run :PlugInstall"))
