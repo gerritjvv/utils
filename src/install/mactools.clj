@@ -1,7 +1,6 @@
 (ns install.mactools
  (:require [common.sh :refer [sh! expand-home]]))
 
-
 (defn plugin-manager []
   ;(sh! "curl" "-fLo ~/.vim/autoload/plug.vim" "--create-dirs"
    ; "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
@@ -12,6 +11,10 @@
    (expand-home "~/.config/nvim/init.vim") 
    "
 call plug#begin(stdpath('data') . '/plugged')
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'chrisbra/csv.vim'
 
 Plug 'liuchengxu/vim-better-default'
 Plug 'easymotion/vim-easymotion'
@@ -35,6 +38,8 @@ Plug 'radenling/vim-dispatch-neovim'
 call plug#end()
 
 let maplocalleader = "\\"
+
+let g:coc_global_extensions = ['coc-conjure']
 
 let g:float_preview#docked = 0
 let g:float_preview#max_width = 80
@@ -78,7 +83,10 @@ nnoremap <leader>fm :Clap marks<cr>
   (let [tools ["rlwrap"
                "curl"
                "gpg"
-               "ripgrep"]]
+               "ripgrep"
+               "gnu-sed"
+               "candid82/brew/joker"
+               "borkdude/brew/clj-kondo"]]
      (doseq [tool tools]
       (brew-install tool))
   
