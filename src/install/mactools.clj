@@ -2,8 +2,6 @@
  (:require [common.sh :refer [sh! expand-home]]))
 
 (defn plugin-manager []
-  ;(sh! "curl" "-fLo ~/.vim/autoload/plug.vim" "--create-dirs"
-   ; "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
 
   (sh! "mkdir" "-p" "~/.config/nvim")
 
@@ -35,9 +33,11 @@ Plug 'tpope/vim-dispatch'
 Plug 'clojure-vim/vim-jack-in'
 Plug 'radenling/vim-dispatch-neovim'
 
+Plug 'chrisbra/csv.vim'
+
 call plug#end()
 
-let maplocalleader = "\\"
+let maplocalleader = \"\\\"
 
 let g:coc_global_extensions = ['coc-conjure']
 
@@ -46,8 +46,8 @@ let g:float_preview#max_width = 80
 let g:float_preview#max_height = 40
 
 let g:ale_linters = {
-      \\ 'clojure': ['clj-kondo', 'joker']
-      \\}
+      'clojure': ['clj-kondo', 'joker']
+      }
 
 let g:clap_provider_grep_delay = 50
 let g:clap_provider_grep_opts = '-H --no-heading --vimgrep --smart-case --hidden -g \"!.git/\"'
@@ -76,6 +76,10 @@ nnoremap <leader>fm :Clap marks<cr>
 
 (defn vim []
   (brew-install "neovim")
+  (sh! "curl" "-fLo" "~/.vim/autoload/plug.vim" "--create-dirs" "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
+  (sh! "sh" "-c" 'curl' '-fLo' '"${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim' "--create-dirs"
+       "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim")
+ 
   (plugin-manager)
   (prn ">>>>>>>> Use nvim and run :PlugInstall"))
 

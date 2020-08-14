@@ -9,13 +9,9 @@ dir=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
 export CP="$(clojure -Spath):$dir/src"
 
 init() {
-
- # install babaska
- curl -s https://raw.githubusercontent.com/borkdude/babashka/master/install -o install-babashka
- chmod +x install-babashka && sudo ./install-babashka
-
+ brew install clojure/tools/clojure
+ brew install borkdude/brew/babashka
 }
-
 
 case "$CMD" in 
   bb )
