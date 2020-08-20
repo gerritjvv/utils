@@ -27,5 +27,14 @@ eval `./build.sh bb --repl`
 
 ## Docker
 
+```
 ./build.sh docker prune
+```
 
+
+## Repeatig shell commands
+
+```
+# run ls /tmp/ then wait 5 seconds and run again
+./build.sh repeat 5 ls /tmp/
+```

@@ -17,6 +17,9 @@ case "$CMD" in
   bb )
   echo bb -cp "$CP" $@     
   ;;
+  repeat )
+   bb -cp $CP -m commands.repeat $@
+   ;;
   docker )
    bb -cp $CP -m docker.core $@
    ;;

@@ -14,8 +14,15 @@
 (defn -main [& args]
   (apply sh! args))
 
+(defn repeat! [sleep-seconds & args]
+   "Run a command repeatedly"
+   (try
+     (apply sh! args)
+     (catch Exception  e (prn e)))
 
-(+ 1 2) 
+   (Thread/sleep (int (* sleep-seconds 1000)))
+   (recur sleep-seconds args))
+
 (comment
   
   (sh! "ls" "/tmp")
