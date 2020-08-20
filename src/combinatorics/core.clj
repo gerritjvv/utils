@@ -6,15 +6,32 @@
 
 
 (defn fact [n]
-   (loop [i (long n) acc 1]
-     (if (= i 1)
+   (loop [i (long n) acc (double 1)]
+     (if (<= i 1)
          acc
          (recur (dec i) (* acc i)))))
 
 
-(defn choose [n k]
-  "n choose k"
+(defmulti choose (fn [n k & {:keys [rep order] :or {rep false order false}}] {:rep rep :order order}))
+
+
+(defmethod choose {:rep false :order false} [n k & _]
   (->
     (fact n)
     (/ (fact (- n k)))
     (/ (fact k))))
+
+
+(defmethod choose {:rep true :order false} 
+  [n k & _]
+   (choose (-> n (+ k) dec) (dec k) :rep false :order false))
+
+
+(defmethod choose {:rep false :order true}
+ [n k & _]
+  (/ (fact n) (fact (- n k))))
+
+
+(defmethod choose {:rep true :order true}
+  [n k & _]
+  (pow n k))
