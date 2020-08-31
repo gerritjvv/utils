@@ -8,6 +8,13 @@
 
    Use multi choose when:
      Distributed N things between K options 
+
+
+  Remember the product rule and sum rule for combinations with tuples
+
+
+  (require '[clojure.math.combinatorics :as combo])
+
   "
 
   combinatorics.core)
