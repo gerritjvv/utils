@@ -1,4 +1,7 @@
-(ns 
+(ns combinatorics.core)
+
+(comment 
+
   "
    Choose: (N / K) => choose n k
   
@@ -14,11 +17,8 @@
 
 
   (require '[clojure.math.combinatorics :as combo])
-
-  "
-
-  combinatorics.core)
-
+ "
+)
 
 (defn pow [n k]
    "n ^ k"
@@ -72,4 +72,9 @@
     #(= (sum-digits %) equal-to)
      (range from to)))
 
+(defn expectation [val-probs]
+  " val probs should be [ [outcome, probability] ... ]
+    remember that E(f + g) = Ef + Eg <-- linearity
+  "
+  (reduce + (map (fn [[outcome prob]] (* outcome prob)) val-probs)))
 
