@@ -91,7 +91,10 @@ nnoremap <leader>fm :Clap marks<cr>
                "borkdude/brew/clj-kondo"]]
      (doseq [tool tools]
       (brew-install tool))
-  
+ 
+     (sh! "pip install saws --upgrade --ignore-installed six")
+     (sh! "pip install kube-shell")
+
     (vim)
     (gpg)))
 
