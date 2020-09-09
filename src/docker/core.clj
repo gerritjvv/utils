@@ -4,8 +4,8 @@
 
 (defn prune []
   "Prune all resources, images ,system etc from docker"
-  (sh! "docker" "system" "prune" "-a"))
-
+  (sh! "docker" "system" "prune" "-a")
+  (sh! "docker" "volume" "prune" "-f"))
 
 
 (defn -main [& args]
