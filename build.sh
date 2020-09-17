@@ -30,6 +30,11 @@ case "$CMD" in
   init )
    init
    ;;
+  repl )
+   clj \
+-Sdeps '{:deps {vlaaad/reveal {:mvn/version "1.0.128"}}}' \
+-m vlaaad.reveal repl
+   ;;
   * )
   echo "$0 init"
   exit 1
